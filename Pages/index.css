@@ -1,7 +1,8 @@
-@import url(../Vendor/Fonts/Inter_Web/inter.css);
 @import url(../Vendor/normalize.css);
+@import url(../Vendor/Fonts/Inter_Web/inter.css);
 @import url(../Blocks/footer.css);
 @import url(../Blocks/gallery.css);
 @import url(../Blocks/header.css);
 @import url(../Blocks/page.css);
 @import url(../Blocks/profile.css);
+@import url(../Blocks/main-content.css);
