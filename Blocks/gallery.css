@@ -53,6 +53,7 @@
   transition: opacity 1s ease-in-out;
   background-size: contain;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .gallery__image-like:hover {
