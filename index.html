@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Around the US</title>
-    <link rel="stylesheet" href="./Pages/index.css" />
+    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="./favicon.ico" />
   </head>
   <body class="page">
@@ -13,14 +13,14 @@
       <img
         class="header__logo"
         alt="jacques cousteau"
-        src="./Images/AroundTheUS.png"
+        src="./images/AroundTheUS.png"
       />
     </header>
 
     <main>
       <section class="profile">
         <img
-          src="./Images/jacques-cousteau.jpg"
+          src="./images/jacques-cousteau.jpg"
           class="profile__image"
           alt="Jacques Cousteau"
         />
@@ -32,11 +32,30 @@
         <p class="profile__subtitle">Explorer</p>
       </section>
 
+      <section class="modal">
+        <div class="modal__container">
+          <h2 class="modal__container-title">Edit profile</h2>
+          <button class="modal__container__close" type="button"></button>
+
+          <form class="modal__form">
+            <fieldset class="modal__fieldset">
+              <input class="modal__input" type="text" placeholder="Name" />
+              <div class="modal__underline"></div>
+            </fieldset>
+            <fieldset class="modal__fieldset">
+              <input class="modal__input" type="text" placeholder="About me" />
+              <div class="modal__underline"></div>
+            </fieldset>
+          </form>
+          <button class="modal__save-button" type="button">Save</button>
+        </div>
+      </section>
+
       <section class="main-content">
         <ul class="gallery">
           <li>
             <img
-              src="./Images/yosemite.jpg"
+              src="./images/yosemite.jpg"
               class="gallery__image"
               alt="Yosemite"
             />
@@ -48,7 +67,7 @@
 
           <li>
             <img
-              src="./Images/lake-louise.jpg"
+              src="./images/lake-louise.jpg"
               class="gallery__image"
               alt="Lake Louise"
             />
@@ -60,7 +79,7 @@
 
           <li>
             <img
-              src="./Images/bald-mountains.jpg"
+              src="./images/bald-mountains.jpg"
               class="gallery__image"
               alt="Bald Mountains"
             />
@@ -72,7 +91,7 @@
 
           <li>
             <img
-              src="./Images/latemar.jpg"
+              src="./images/latemar.jpg"
               class="gallery__image"
               alt="Latemar"
             />
@@ -84,7 +103,7 @@
 
           <li>
             <img
-              src="./Images/vanoise.jpg"
+              src="./images/vanoise.jpg"
               class="gallery__image"
               alt="Vanoise"
             />
@@ -95,7 +114,7 @@
           </li>
 
           <li>
-            <img src="./Images/lago.jpg" class="gallery__image" alt="Lago" />
+            <img src="./images/lago.jpg" class="gallery__image" alt="Lago" />
             <div class="gallery__image-footer">
               <h2 class="gallery__image-title">Lago di Braies</h2>
               <button class="gallery__image-like" type="button"></button>

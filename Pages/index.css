@@ -1,8 +1,9 @@
-@import url(../Vendor/normalize.css);
-@import url(../Vendor/Fonts/Inter_Web/inter.css);
-@import url(../Blocks/footer.css);
-@import url(../Blocks/gallery.css);
-@import url(../Blocks/header.css);
-@import url(../Blocks/page.css);
-@import url(../Blocks/profile.css);
-@import url(../Blocks/main-content.css);
+@import url(../vendor/normalize.css);
+@import url(../vendor/Fonts/Inter_Web/inter.css);
+@import url(../blocks/footer.css);
+@import url(../blocks/gallery.css);
+@import url(../blocks/header.css);
+@import url(../blocks/page.css);
+@import url(../blocks/profile.css);
+@import url(../blocks/main-content.css);
+@import url(../blocks/modal.css);
