@@ -25,15 +25,17 @@ let initialCards = [
   },
 ];
 
-// select buttons
-let editButton = document.querySelector(".profile__button-edit");
-let closeButton = document.querySelector(".modal__container-close");
+// select modal/profile fields
 let modalSelector = document.querySelector(".modal");
-let saveButton = document.querySelector(".modal__save-button");
 let username = document.querySelector(".profile__name");
 let modalName = document.querySelectorAll(".modal__input")[0];
 let description = document.querySelector(".profile__subtitle");
 let modalDescription = document.querySelectorAll(".modal__input")[1];
+let editButton = document.querySelector(".profile__button-edit");
+let closeButton = document.querySelector(".modal__container-close");
+let saveButton = document.querySelector(".modal__save-button");
+let cardElement = document.querySelector("#template").content;
+let clonedTemplate = cardElement.cloneNode(true);
 
 // open and close pop-up && render modal text
 editButton.addEventListener("click", function () {
@@ -44,6 +46,10 @@ editButton.addEventListener("click", function () {
 
 closeButton.addEventListener("click", function () {
   modalSelector.classList.remove("modal_opened");
+});
+
+saveButton.addEventListener("submit", function () {
+  console.log("form submitted");
 });
 
 // save button
