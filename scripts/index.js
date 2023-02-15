@@ -34,11 +34,21 @@ let modalDescription = document.querySelectorAll(".modal__input")[1];
 let editButton = document.querySelector(".profile__button-edit");
 let closeButton = document.querySelector(".modal__container-close");
 let saveButton = document.querySelector(".modal__save-button");
-let cardElement = document.querySelector("#template").content;
-let clonedTemplate = cardElement.cloneNode(true);
-
+let cardTemplate =
+  document.querySelector("#template").content.firstElementChild;
+let cardListEl = document.querySelector(".gallery");
 function closePopup() {
   modalSelector.classList.remove("modal_opened");
+}
+
+function getCardElement(cardData) {
+  let cardElement = cardTemplate.cloneNode(true);
+  let cardImageEl = cardElement.querySelector(".gallery__image");
+  let cardTitleEl = cardElement.querySelector(".gallery__image-title");
+  cardTitleEl.textContent = cardData.name;
+  cardImageEl.src = cardData.link;
+  cardImageEl.alt = cardTitleEl.textContent;
+  return cardElement;
 }
 
 function handleProfileEditSubmit(e) {
@@ -59,3 +69,9 @@ closeButton.addEventListener("click", closePopup);
 
 // save button
 saveButton.addEventListener("submit", handleProfileEditSubmit);
+
+// render cards
+initialCards.forEach((cardData) => {
+  cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
+});
