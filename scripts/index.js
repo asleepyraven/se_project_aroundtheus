@@ -41,6 +41,13 @@ function closePopup() {
   modalSelector.classList.remove("modal_opened");
 }
 
+function handleProfileEditSubmit(e) {
+  e.preventDefault();
+  username.textContent = modalName.value;
+  description.textContent = modalDescription.value;
+  closePopup();
+}
+
 // open and close pop-up && render modal text
 editButton.addEventListener("click", function () {
   modalSelector.classList.add("modal_opened");
@@ -48,14 +55,7 @@ editButton.addEventListener("click", function () {
   modalDescription.value = description.textContent;
 });
 
-closeButton.addEventListener("click", function () {
-  closePopup();
-});
+closeButton.addEventListener("click", closePopup);
 
 // save button
-saveButton.addEventListener("submit", (e) => {
-  e.preventDefault();
-  username.textContent = modalName.value;
-  description.textContent = modalDescription.value;
-  closePopup();
-});
+saveButton.addEventListener("submit", handleProfileEditSubmit);
