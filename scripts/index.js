@@ -37,6 +37,10 @@ let saveButton = document.querySelector(".modal__save-button");
 let cardElement = document.querySelector("#template").content;
 let clonedTemplate = cardElement.cloneNode(true);
 
+function closePopup() {
+  modalSelector.classList.remove("modal_opened");
+}
+
 // open and close pop-up && render modal text
 editButton.addEventListener("click", function () {
   modalSelector.classList.add("modal_opened");
@@ -45,11 +49,7 @@ editButton.addEventListener("click", function () {
 });
 
 closeButton.addEventListener("click", function () {
-  modalSelector.classList.remove("modal_opened");
-});
-
-saveButton.addEventListener("submit", function () {
-  console.log("form submitted");
+  closePopup();
 });
 
 // save button
@@ -57,5 +57,5 @@ saveButton.addEventListener("submit", (e) => {
   e.preventDefault();
   username.textContent = modalName.value;
   description.textContent = modalDescription.value;
-  modalSelector.classList.remove("modal_opened");
+  closePopup();
 });
