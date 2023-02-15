@@ -53,7 +53,7 @@ saveButton.addEventListener("submit", function () {
 });
 
 // save button
-saveButton.addEventListener("click", function () {
+saveButton.addEventListener("submit", function () {
   username.textContent = modalName.value;
   description.textContent = modalDescription.value;
   modalSelector.classList.remove("modal_opened");
