@@ -37,8 +37,8 @@ let saveButton = document.querySelector(".modal__save-button");
 let cardTemplate =
   document.querySelector("#template").content.firstElementChild;
 let cardListEl = document.querySelector(".gallery");
-function closePopup() {
-  modalSelector.classList.remove("modal_opened");
+function togglePopup() {
+  modalSelector.classList.toggle("modal_opened");
 }
 
 function getCardElement(cardData) {
@@ -55,17 +55,17 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   username.textContent = modalName.value;
   description.textContent = modalDescription.value;
-  closePopup();
+  togglePopup();
 }
 
 // open and close pop-up && render modal text
 editButton.addEventListener("click", function () {
-  modalSelector.classList.add("modal_opened");
+  togglePopup();
   modalName.value = username.textContent;
   modalDescription.value = description.textContent;
 });
 
-closeButton.addEventListener("click", closePopup);
+closeButton.addEventListener("click", togglePopup);
 
 // save button
 saveButton.addEventListener("click", handleProfileEditSubmit);
