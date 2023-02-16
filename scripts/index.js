@@ -68,7 +68,7 @@ editButton.addEventListener("click", function () {
 closeButton.addEventListener("click", closePopup);
 
 // save button
-saveButton.addEventListener("submit", handleProfileEditSubmit);
+saveButton.addEventListener("click", handleProfileEditSubmit);
 
 // render cards
 initialCards.forEach((cardData) => {
