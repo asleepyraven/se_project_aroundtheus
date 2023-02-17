@@ -1,3 +1,7 @@
+button {
+  cursor: pointer;
+}
+
 .modal {
   position: fixed;
   left: 0;
@@ -7,11 +11,12 @@
   background: #000;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal_opened {
   display: flex;
-  justify-content: center;
 }
 
 .modal__container {
@@ -21,34 +26,30 @@
   max-width: 430px;
   max-height: 330px;
   height: 330px;
-  top: 195px;
   border-radius: 10px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
   margin: 0;
   padding: 0;
   border: none;
-  position: relative;
 }
 
 .modal__container-title {
-  left: 36px;
-  top: 34px;
   width: 330px;
   height: 23px;
-  position: absolute;
   margin: 0;
   padding: 0;
+  margin-top: 34px;
+  margin-left: 36px;
 }
 
 .modal__container-close {
+  position: absolute;
   background-image: url("../images/Close-Icon.png");
   margin: 0;
   padding: 0;
   height: 40px;
   width: 40px;
-  right: -48px;
-  top: -48px;
-  position: absolute;
+  top: 0;
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
@@ -61,29 +62,29 @@
 
 .modal__form {
   top: 111px;
-  position: relative;
   width: 358px;
   margin: 0;
   padding: 0;
-}
-
-.modal__fieldset {
-  border: none;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 35px;
-  margin-left: 36px;
+  display: flex;
+  flex-direction: column;
+  max-width: 430px;
+  max-height: 330px;
+  height: 330px;
 }
 
 .modal__input {
   border: none;
   margin: 0;
   padding: 0;
+  margin-left: 36px;
+}
+
+.modal__input:first-of-type {
+  margin-top: 54px;
 }
 
 .modal__underline {
   color: #000;
-  position: absolute;
   width: 358px;
   height: 0px;
   opacity: 0.2;
@@ -91,10 +92,11 @@
   margin: 0;
   padding: 0;
   margin-top: 13.3px;
+  margin-left: 36px;
+  margin-bottom: 30px;
 }
 
 .modal__save-button {
-  position: absolute;
   width: 358px;
   height: 50.15px;
   background-color: #000;
@@ -102,10 +104,8 @@
   border-radius: 2px;
   margin: 0;
   padding: 0;
-  margin-left: 35px;
-  margin-top: 48px;
-  bottom: 35px;
   transition: opacity 1s ease;
+  bottom: 230px;
 }
 
 .modal__save-button:hover {
