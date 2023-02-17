@@ -43,8 +43,8 @@ function togglePopup() {
 
 function getCardEl(cardData) {
   const cardEl = cardTemplate.cloneNode(true);
-  let cardImageEl = cardEl.querySelector(".gallery__image");
-  let cardTitleEl = cardEl.querySelector(".gallery__image-title");
+  const cardImageEl = cardEl.querySelector(".gallery__image");
+  const cardTitleEl = cardEl.querySelector(".gallery__image-title");
   cardTitleEl.textContent = cardData.name;
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardTitleEl.textContent;
@@ -72,6 +72,6 @@ saveButton.addEventListener("submit", handleProfileEditSubmit);
 
 // render cards
 initialCards.forEach((cardData) => {
-  cardEl = getCardEl(cardData);
+  const cardEl = getCardEl(cardData);
   cardListEl.prepend(cardEl);
 });

@@ -60,7 +60,7 @@
 
 .modal__form {
   top: 111px;
-  width: 358px;
+  width: 100%;
   margin: 0;
   padding: 0;
   max-width: 430px;
@@ -73,6 +73,7 @@
   margin: 0;
   padding: 0;
   margin-left: 36px;
+  width: calc(100% - 72px);
 }
 
 .modal__input:first-of-type {
