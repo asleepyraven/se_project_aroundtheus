@@ -1,4 +1,4 @@
-let initialCards = [
+const initialCards = [
   {
     name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
@@ -26,34 +26,34 @@ let initialCards = [
 ];
 
 // select modal/profile fields
-let modalSelector = document.querySelector(".modal");
-let username = document.querySelector(".profile__name");
-let modalName = document.querySelectorAll(".modal__input")[0];
-let description = document.querySelector(".profile__subtitle");
-let modalDescription = document.querySelectorAll(".modal__input")[1];
-let editButton = document.querySelector(".profile__button-edit");
-let closeButton = document.querySelector(".modal__container-close");
-let saveButton = document.querySelector(".modal__save-button");
-let cardTemplate =
+const modalEl = document.querySelector(".modal");
+const userName = document.querySelector(".profile__name");
+const modalName = document.querySelector("#modal__profile");
+const description = document.querySelector(".profile__subtitle");
+const modalDescription = document.querySelector("#modal__description");
+const editButton = document.querySelector(".profile__button-edit");
+const closeButton = document.querySelector(".modal__container-close");
+const saveButton = document.querySelector(".modal__save-button");
+const cardTemplate =
   document.querySelector("#template").content.firstElementChild;
-let cardListEl = document.querySelector(".gallery");
+const cardListEl = document.querySelector(".gallery");
 function togglePopup() {
-  modalSelector.classList.toggle("modal_opened");
+  modalEl.classList.toggle("modal_opened");
 }
 
-function getCardElement(cardData) {
-  let cardElement = cardTemplate.cloneNode(true);
-  let cardImageEl = cardElement.querySelector(".gallery__image");
-  let cardTitleEl = cardElement.querySelector(".gallery__image-title");
+function getCardEl(cardData) {
+  const cardEl = cardTemplate.cloneNode(true);
+  let cardImageEl = cardEl.querySelector(".gallery__image");
+  let cardTitleEl = cardEl.querySelector(".gallery__image-title");
   cardTitleEl.textContent = cardData.name;
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardTitleEl.textContent;
-  return cardElement;
+  return cardEl;
 }
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
-  username.textContent = modalName.value;
+  userName.textContent = modalName.value;
   description.textContent = modalDescription.value;
   togglePopup();
 }
@@ -61,17 +61,17 @@ function handleProfileEditSubmit(e) {
 // open and close pop-up && render modal text
 editButton.addEventListener("click", function () {
   togglePopup();
-  modalName.value = username.textContent;
+  modalName.value = userName.textContent;
   modalDescription.value = description.textContent;
 });
 
 closeButton.addEventListener("click", togglePopup);
 
 // save button
-saveButton.addEventListener("click", handleProfileEditSubmit);
+saveButton.addEventListener("submit", handleProfileEditSubmit);
 
 // render cards
 initialCards.forEach((cardData) => {
-  cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+  cardEl = getCardEl(cardData);
+  cardListEl.prepend(cardEl);
 });
