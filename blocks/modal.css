@@ -31,6 +31,7 @@ button {
   margin: 0;
   padding: 0;
   border: none;
+  position: relative;
 }
 
 .modal__container-title {
@@ -49,7 +50,8 @@ button {
   padding: 0;
   height: 40px;
   width: 40px;
-  top: 0;
+  top: -40px;
+  right: -40px;
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
@@ -119,19 +121,29 @@ button {
     display: flex;
   }
 
-  .modal_opened {
-    display: block;
-  }
-
   .modal__container {
-    top: 123px;
-    left: 19px;
     width: 282px;
     height: 322px;
   }
 
+  .modal__input {
+    margin-left: 22px;
+  }
+
+  .modal__container-title {
+    height: 22px;
+    width: 238px;
+    padding-top: 25px;
+  }
+
+  .modal__input:first-of-type {
+    margin-top: 75px;
+  }
+
   .modal__save-button {
     width: 238px;
+    margin-left: 22px;
+    height: 46px;
   }
 
   .modal__container-close {
@@ -140,16 +152,9 @@ button {
     width: 26px;
   }
 
-  .modal__fieldset {
-    margin-left: 22px;
-  }
-
-  .modal__save-button {
-    margin-left: 22px;
-  }
-
   .modal__underline {
     width: 238px;
-    left: 22px;
+    margin-left: 22px;
+    margin-bottom: 20px;
   }
 }
