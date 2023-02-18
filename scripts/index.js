@@ -37,6 +37,7 @@ const saveButton = document.querySelector(".modal__save-button");
 const cardTemplate =
   document.querySelector("#template").content.firstElementChild;
 const cardListEl = document.querySelector(".gallery");
+const profileEditForm = document.querySelector("#profile-edit-form");
 function togglePopup() {
   modalEl.classList.toggle("modal_opened");
 }
@@ -68,7 +69,7 @@ editButton.addEventListener("click", function () {
 closeButton.addEventListener("click", togglePopup);
 
 // save button
-saveButton.addEventListener("submit", handleProfileEditSubmit);
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 // render cards
 initialCards.forEach((cardData) => {
