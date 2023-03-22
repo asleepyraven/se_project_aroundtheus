@@ -18,16 +18,6 @@
     </header>
 
     <main>
-      <template id="template">
-        <li>
-          <img src="" class="gallery__image" alt="" />
-          <div class="gallery__image-footer">
-            <h2 class="gallery__image-title"></h2>
-            <button class="gallery__image-like" type="button"></button>
-          </div>
-        </li>
-      </template>
-
       <section class="profile">
         <img
           src="./images/jacques-cousteau.jpg"
@@ -42,7 +32,22 @@
         <p class="profile__subtitle" name="description">Explorer</p>
       </section>
 
-      <section class="modal">
+      <section class="main-content">
+        <ul class="gallery">
+          <template id="template">
+            <li>
+              <button class="gallery__image-trash" type="button"></button>
+              <img src="" class="gallery__image" alt="" />
+              <div class="gallery__image-footer">
+                <h2 class="gallery__image-title"></h2>
+                <button class="gallery__image-like" type="button"></button>
+              </div>
+            </li>
+          </template>
+        </ul>
+      </section>
+
+      <section class="modal js-modal_type_edit">
         <div class="modal__container">
           <button class="modal__container-close" type="button"></button>
           <form class="modal__form" id="profile-edit-form">
@@ -68,8 +73,42 @@
         </div>
       </section>
 
-      <section class="main-content">
-        <ul class="gallery"></ul>
+      <section class="modal js-modal_type_add">
+        <div class="modal__container">
+          <button class="modal__container-close" type="button"></button>
+          <form class="modal__form" id="image-edit-form">
+            <h2 class="modal__container-title">New Place</h2>
+            <input
+              class="modal__input"
+              type="text"
+              name="title"
+              ;
+              placeholder="Title"
+              id="modal__profile"
+              required
+            />
+            <div class="modal__underline"></div>
+            <input
+              class="modal__input"
+              type="text"
+              name="link"
+              ;
+              placeholder="Image Link"
+              id="modal__description"
+              required
+            />
+            <div class="modal__underline"></div>
+            <button class="modal__save-button" type="submit">Save</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="modal js-modal_type_image">
+        <div class="modal__container modal_image_enlarge">
+          <button class="modal__container-close" type="button"></button>
+          <img src="" class="" />
+          <p class="modal__image-caption"></p>
+        </div>
       </section>
     </main>
 

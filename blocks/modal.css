@@ -111,6 +111,17 @@
   opacity: 0.8;
 }
 
+.modal_image_enlarge {
+  min-height: 75%;
+  min-width: 55%;
+  max-height: 75vw;
+  max-width: 75vw;
+  position: fixed;
+  top: 10%;
+  left: 20%;
+  z-index: 110;
+}
+
 @media screen and (min-width: 320px) and (max-width: 380px) {
   .modal {
     overflow: hidden;
