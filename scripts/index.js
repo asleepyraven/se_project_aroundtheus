@@ -36,10 +36,10 @@ const description = document.querySelector(".profile__subtitle");
 const modalDescription = document.querySelector("#modal__description");
 const editButton = document.querySelector(".profile__button-edit");
 const profileCloseButton = modalEditEl.querySelector(".modal__container-close");
-const imageCloseButton = modalAddImageEl.querySelector(
+const addImageCloseBtn = modalAddImageEl.querySelector(
   ".modal__container-close"
 );
-const enlargeCloseButton = modalEditEl.querySelector(".modal__container-close");
+const enlargeCloseBtn = imageModal.querySelector(".modal__image-close");
 const saveButton = document.querySelector(".modal__save-button");
 const cardAddImage = document.querySelector(".profile__button-add");
 const cardTemplate =
@@ -85,7 +85,8 @@ function getCardView(cardData) {
     imageCaption.textContent = cardTitleEl.textContent;
     openModal(imageModal);
   });
-  imageModal.addEventListener("click", () => {
+  // close popup
+  enlargeCloseBtn.addEventListener("click", () => {
     closeModal(imageModal);
   });
   imageEnlarge.src = cardData.link;
@@ -129,7 +130,7 @@ cardAddImage.addEventListener("click", function () {
   openModal(modalAddImageEl);
 });
 
-imageCloseButton.addEventListener("click", function () {
+addImageCloseBtn.addEventListener("click", function () {
   closeModal(modalAddImageEl);
 });
 
