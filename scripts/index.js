@@ -29,7 +29,7 @@ const initialCards = [
 // select modal/profile fields
 const modalEditEl = document.querySelector(".js-modal_type_edit");
 const modalAddImageEl = document.querySelector(".js-modal_type_add");
-const modalEnlargeImage = document.querySelector(".js-modal_type_image");
+const imageModal = document.querySelector(".js-modal_type_image");
 const userName = document.querySelector(".profile__name");
 const modalName = document.querySelector("#modal__profile");
 const description = document.querySelector(".profile__subtitle");
@@ -47,7 +47,8 @@ const cardTemplate =
 const cardListEl = document.querySelector(".gallery");
 const profileEditForm = document.querySelector("#profile-edit-form");
 const imageEditForm = document.querySelector("#image-edit-form");
-
+const imageEnlarge = imageModal.querySelector("img");
+const imageCaption = imageModal.querySelector("p");
 function openModal(modal) {
   modal.classList.add("modal_opened");
 }
@@ -63,8 +64,6 @@ function getCardView(cardData) {
   const cardEl = cardTemplate.cloneNode(true);
   const cardImageEl = cardEl.querySelector(".gallery__image");
   const cardTitleEl = cardEl.querySelector(".gallery__image-title");
-  const imageModal = document.querySelector(".js-modal_type_image");
-  const imageEnlarge = cardEl.querySelector("img");
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardTitleEl.textContent;
   cardTitleEl.textContent = cardData.name;
@@ -78,21 +77,18 @@ function getCardView(cardData) {
   imageDeleteButton.addEventListener("click", () => {
     cardEl.remove();
   });
-  // add event listener image
-  /*cardImageEl.addEventListener("click", () => {
-    imageEnlarge.classList.toggle("modal_image_enlarge");
-  });*/
+
   // open popup
   cardImageEl.addEventListener("click", () => {
+    imageEnlarge.src = cardData.link;
+    imageEnlarge.alt = cardTitleEl.textContent;
+    imageCaption.textContent = cardTitleEl.textContent;
     openModal(imageModal);
   });
-  modalEnlargeImage.addEventListener("click", () => {
+  imageModal.addEventListener("click", () => {
     closeModal(imageModal);
   });
-  // find image element inside popup
-  // replace src with card link
   imageEnlarge.src = cardData.link;
-  // replace alt with card link
   return cardEl;
 }
 
