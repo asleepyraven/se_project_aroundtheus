@@ -27,9 +27,9 @@ const initialCards = [
 ];
 
 // select modal/profile fields
-const modalEditEl = document.querySelector(".js-modal_type_edit");
-const modalAddImageEl = document.querySelector(".js-modal_type_add");
-const imageModal = document.querySelector(".js-modal_type_image");
+const modalEditEl = document.querySelector("#js-modal_type_edit");
+const modalAddImageEl = document.querySelector("#js-modal_type_add");
+const imageModal = document.querySelector("#js-modal_type_image");
 const userName = document.querySelector(".profile__name");
 const modalName = document.querySelector("#modal__profile");
 const description = document.querySelector(".profile__subtitle");

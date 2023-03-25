@@ -60,7 +60,7 @@
   right: -40px;
 }
 
-.modal__image_enlarge {
+.modal__image-enlarge {
   display: flex;
   flex-direction: column;
 }
