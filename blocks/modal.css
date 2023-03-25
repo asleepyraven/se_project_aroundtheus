@@ -64,8 +64,7 @@
 }
 
 .modal__image-close {
-  display: flex;
-  position: relative;
+  position: fixed;
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
@@ -74,7 +73,7 @@
   margin: 0;
   padding: 0;
   height: 40px;
-  width: 40px;
+  width: 100%;
   z-index: 120;
 }
 
