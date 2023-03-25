@@ -26,29 +26,34 @@ const initialCards = [
   },
 ];
 
-// select modal/profile fields
+// edit modal
 const modalEditEl = document.querySelector("#js-modal_type_edit");
-const modalAddImageEl = document.querySelector("#js-modal_type_add");
-const imageModal = document.querySelector("#js-modal_type_image");
 const userName = document.querySelector(".profile__name");
 const modalName = document.querySelector("#modal__profile");
 const description = document.querySelector(".profile__subtitle");
 const modalDescription = document.querySelector("#modal__description");
 const editButton = document.querySelector(".profile__button-edit");
 const profileCloseButton = modalEditEl.querySelector(".modal__container-close");
+// image modal
+const modalAddImageEl = document.querySelector("#js-modal_type_add");
+const imageModal = document.querySelector("#js-modal_type_image");
+const saveButton = document.querySelector(".modal__save-button");
+const cardAddImage = document.querySelector(".profile__button-add");
+const imageEditForm = document.querySelector("#image-edit-form");
+const imageEnlarge = imageModal.querySelector("img");
+const imageCaption = imageModal.querySelector("p");
+// render cards
+const cardTemplate =
+  document.querySelector("#template").content.firstElementChild;
+const cardListEl = document.querySelector(".gallery");
+
 const addImageCloseBtn = modalAddImageEl.querySelector(
   ".modal__container-close"
 );
 const enlargeCloseBtn = imageModal.querySelector(".modal__image-close");
-const saveButton = document.querySelector(".modal__save-button");
-const cardAddImage = document.querySelector(".profile__button-add");
-const cardTemplate =
-  document.querySelector("#template").content.firstElementChild;
-const cardListEl = document.querySelector(".gallery");
+
 const profileEditForm = document.querySelector("#profile-edit-form");
-const imageEditForm = document.querySelector("#image-edit-form");
-const imageEnlarge = imageModal.querySelector("img");
-const imageCaption = imageModal.querySelector("p");
+// functions
 function openModal(modal) {
   modal.classList.add("modal_opened");
 }
@@ -59,33 +64,32 @@ function closeModal(modal) {
 function renderCard(cardEl, container) {
   container.prepend(cardEl);
 }
-
+// main function that creates all image cards
 function getCardView(cardData) {
   const cardEl = cardTemplate.cloneNode(true);
   const cardImageEl = cardEl.querySelector(".gallery__image");
   const cardTitleEl = cardEl.querySelector(".gallery__image-title");
+  const cardLikeBtn = cardEl.querySelector(".gallery__image-like");
+  const imageDeleteButton = cardEl.querySelector(".gallery__image-trash");
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardTitleEl.textContent;
   cardTitleEl.textContent = cardData.name;
-  // add event listener for like
-  const cardLikeBtn = cardEl.querySelector(".gallery__image-like");
+  // event listener "like button"
   cardLikeBtn.addEventListener("click", () => {
     cardLikeBtn.classList.toggle("gallery__image-like_active");
   });
-  // add event listener for delete
-  const imageDeleteButton = cardEl.querySelector(".gallery__image-trash");
+  // event listener "image delete button"
   imageDeleteButton.addEventListener("click", () => {
     cardEl.remove();
   });
-
-  // open popup
+  // event listener "open enlarged image"
   cardImageEl.addEventListener("click", () => {
     imageEnlarge.src = cardData.link;
     imageEnlarge.alt = cardTitleEl.textContent;
     imageCaption.textContent = cardTitleEl.textContent;
     openModal(imageModal);
   });
-  // close popup
+  // event listener "close enlarged image"
   enlargeCloseBtn.addEventListener("click", () => {
     closeModal(imageModal);
   });
