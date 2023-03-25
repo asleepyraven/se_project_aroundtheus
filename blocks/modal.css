@@ -64,14 +64,17 @@
 }
 
 .modal__image-close {
-  position: fixed;
+  position: relative;
+  display: flex;
   background-color: transparent;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 100%;
   border: none;
   background-image: url("../images/Close-Icon.png");
   margin: 0;
   padding: 0;
+  bottom: 10px;
+  left: 40px;
   height: 40px;
   width: 100%;
   z-index: 120;
