@@ -67,7 +67,6 @@
   transition: opacity 1s ease-in-out;
   background-size: contain;
   cursor: pointer;
-  z-index: 100;
 }
 
 .gallery__image-like:hover {

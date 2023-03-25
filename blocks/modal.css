@@ -9,7 +9,9 @@
   bottom: 0;
   background: #000;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: opacity 0.3s ease-in-out, visibility 0.3s linear;
+  transition: opacity 0s ease-in-out visibility 0.5s linear;
+  justify-content: center;
+  z-index: 999;
 }
 
 .modal_opened {
@@ -54,6 +56,23 @@
   width: 40px;
   top: -40px;
   right: -40px;
+}
+
+.modal__image-close {
+  position: absolute;
+  display: flex;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-image: url("../images/Close-Icon.png");
+  margin: 0;
+  padding: 0;
+  right: 425px;
+  top: 160px;
+  height: 40px;
+  width: 40px;
+  z-index: 120;
 }
 
 .modal__container-close:hover {
