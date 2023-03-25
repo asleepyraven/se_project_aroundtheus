@@ -139,7 +139,7 @@
   opacity: 0.8;
 }
 
-.modal__image_enlarge img {
+.modal__image-enlarge img {
   min-height: 55vh;
   min-width: 50vw;
   max-height: 55vh;
