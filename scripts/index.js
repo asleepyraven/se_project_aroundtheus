@@ -26,7 +26,7 @@ const initialCards = [
   },
 ];
 
-// edit modal
+// profile modal
 const modalEditEl = document.querySelector("#js-modal_type_edit");
 const userName = document.querySelector(".profile__name");
 const modalName = document.querySelector("#modal__profile");
@@ -34,6 +34,8 @@ const description = document.querySelector(".profile__subtitle");
 const modalDescription = document.querySelector("#modal__description");
 const editButton = document.querySelector(".profile__button-edit");
 const profileCloseButton = modalEditEl.querySelector(".modal__container-close");
+const profileEditForm = document.querySelector("#profile-edit-form");
+
 // image modal
 const modalAddImageEl = document.querySelector("#js-modal_type_add");
 const imageModal = document.querySelector("#js-modal_type_image");
@@ -42,17 +44,21 @@ const cardAddImage = document.querySelector(".profile__button-add");
 const imageEditForm = document.querySelector("#image-edit-form");
 const imageEnlarge = imageModal.querySelector("img");
 const imageCaption = imageModal.querySelector("p");
+const enlargeCloseBtn = imageModal.querySelector(".modal__image-close");
+
+// event listener "close enlarged image"
+enlargeCloseBtn.addEventListener("click", () => {
+  closeModal(imageModal);
+});
+
 // render cards
 const cardTemplate =
   document.querySelector("#template").content.firstElementChild;
 const cardListEl = document.querySelector(".gallery");
-
 const addImageCloseBtn = modalAddImageEl.querySelector(
   ".modal__container-close"
 );
-const enlargeCloseBtn = imageModal.querySelector(".modal__image-close");
 
-const profileEditForm = document.querySelector("#profile-edit-form");
 // functions
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -60,10 +66,10 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
-
 function renderCard(cardEl, container) {
   container.prepend(cardEl);
 }
+
 // main function that creates all image cards
 function getCardView(cardData) {
   const cardEl = cardTemplate.cloneNode(true);
@@ -74,6 +80,7 @@ function getCardView(cardData) {
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardTitleEl.textContent;
   cardTitleEl.textContent = cardData.name;
+
   // event listener "like button"
   cardLikeBtn.addEventListener("click", () => {
     cardLikeBtn.classList.toggle("gallery__image-like_active");
@@ -89,11 +96,6 @@ function getCardView(cardData) {
     imageCaption.textContent = cardTitleEl.textContent;
     openModal(imageModal);
   });
-  // event listener "close enlarged image"
-  enlargeCloseBtn.addEventListener("click", () => {
-    closeModal(imageModal);
-  });
-  imageEnlarge.src = cardData.link;
   return cardEl;
 }
 
@@ -103,6 +105,7 @@ profileEditForm.addEventListener("submit", (e) => {
   userName.textContent = modalName.value;
   description.textContent = modalDescription.value;
   closeModal(modalEditEl);
+  profileEditForm.requestFullscreen();
 });
 
 // handle saving images
@@ -116,6 +119,7 @@ imageEditForm.addEventListener("submit", (e) => {
   });
   renderCard(cardView, cardListEl);
   closeModal(modalAddImageEl);
+  imageEditForm.reset();
 });
 
 // open/close edit profile modal
@@ -124,7 +128,6 @@ editButton.addEventListener("click", function () {
   modalName.value = userName.textContent;
   modalDescription.value = description.textContent;
 });
-
 profileCloseButton.addEventListener("click", function () {
   closeModal(modalEditEl);
 });
@@ -133,7 +136,6 @@ profileCloseButton.addEventListener("click", function () {
 cardAddImage.addEventListener("click", function () {
   openModal(modalAddImageEl);
 });
-
 addImageCloseBtn.addEventListener("click", function () {
   closeModal(modalAddImageEl);
 });
