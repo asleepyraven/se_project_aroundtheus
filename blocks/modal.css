@@ -17,7 +17,6 @@
 
 .modal_opened {
   visibility: visible;
-  justify-content: center;
   opacity: 1;
 }
 
@@ -37,8 +36,9 @@
 }
 
 .modal__container-title {
-  width: 330px;
-  height: 23px;
+  width: 100%;
+  max-width: 100%;
+  height: 7%;
   margin: 0;
   padding: 0;
   margin-top: 34px;
@@ -68,18 +68,11 @@
 .modal__image-close {
   position: relative;
   display: flex;
-  background-color: transparent;
-  background-repeat: no-repeat;
   background-position: 100%;
-  border: none;
-  background-image: url("../images/Close-Icon.png");
-  margin: 0;
-  padding: 0;
-  bottom: 10px;
   left: 40px;
-  height: 40px;
   width: 100%;
   z-index: 120;
+  top: -10px;
 }
 
 .modal__container-close:hover {
@@ -87,7 +80,6 @@
 }
 
 .modal__form {
-  top: 111px;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -101,7 +93,7 @@
   margin: 0;
   padding: 0;
   margin-left: 36px;
-  width: calc(100% - 72px);
+  width: 100%;
 }
 
 .modal__input:first-of-type {

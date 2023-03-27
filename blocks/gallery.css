@@ -78,11 +78,11 @@
   background-image: url(../images/Trash.svg);
   width: 18px;
   height: 19px;
-  top: 50px;
-  left: 235px;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
+  left: 89%;
+  top: 10%;
   border: none;
   transition: opacity 1s ease-in-out;
   background-size: contain;
