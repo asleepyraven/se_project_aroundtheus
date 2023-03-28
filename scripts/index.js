@@ -105,7 +105,6 @@ profileEditForm.addEventListener("submit", (e) => {
   userName.textContent = modalName.value;
   description.textContent = modalDescription.value;
   closeModal(modalEditEl);
-  profileEditForm.requestFullscreen();
 });
 
 // handle saving images
