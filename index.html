@@ -98,8 +98,14 @@
               id="modal__image-title"
               required
             />
-            <div class="modal__underline"></div>
-            <span id="modal__image-title-error"></span>
+
+            <div class="modal__underline modal__error">
+              <span
+                id="modal__image-title-error"
+                class="modal__error_invisible"
+              ></span>
+            </div>
+
             <input
               class="modal__input"
               type="url"
@@ -108,9 +114,14 @@
               id="modal__image-link"
               required
             />
-            <div class="modal__underline"></div>
-            <span id="modal__image-link-error"></span>
-            <button class="modal__save-button" type="submit" disabled>
+            <div class="modal__underline">
+              <span id="modal__image-link-error" class=""></span>
+            </div>
+            <button
+              class="modal__save-button modal__button_disabled"
+              type="submit"
+              disabled
+            >
               Save
             </button>
           </form>
