@@ -92,6 +92,8 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
 }
 
 .modal__input:first-of-type {
@@ -108,6 +110,7 @@
   padding: 0;
   transition: opacity 1s ease;
   border: none;
+  margin-top: 30px;
 }
 
 .modal__save-button:hover {
