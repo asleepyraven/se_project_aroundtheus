@@ -25,29 +25,6 @@ function hasInvalidInput(inputList) {
   });
 }
 
-// disableButton
-/*function disableButtonState(
-  inputEls,
-  submitButtonSelector,
-  { inactiveButtonClass }
-) {
-  if (hasInvalidInput(inputEls)) {
-    submitButtonSelector.classList.add(inactiveButtonClass);
-    submitButtonSelector.disabled = true;
-  }
-}
-// enableButton
-function enableButtonState(
-  inputEls,
-  submitButtonSelector,
-  { inactiveButtonClass }
-) {
-  if (!hasInvalidInput(inputEls)) {
-    submitButtonSelector.classList.remove(inactiveButtonClass);
-    submitButtonSelector.disabled = false;
-  }
-}*/
-
 function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
   if (hasInvalidInput(inputEls)) {
     submitButton.classList.add(inactiveButtonClass);
