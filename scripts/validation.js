@@ -21,7 +21,7 @@ function checkInputValidity(formEl, inputEl, config) {
 
 function hasInvalidInput(inputList) {
   return !inputList.every((inputEl) => {
-    inputEl.validity.valid;
+    return inputEl.validity.valid;
   });
 }
 

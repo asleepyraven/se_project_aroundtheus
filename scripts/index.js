@@ -51,6 +51,32 @@ enlargeCloseBtn.addEventListener("click", () => {
   closeModal(imageModal);
 });
 
+// close modals by pushing escape key
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeModal(imageModal);
+  }
+  if (e.key === "Escape") {
+    closeModal(modalEditEl);
+  }
+  if (e.key === "Escape") {
+    closeModal(modalAddImageEl);
+  }
+});
+
+// close modals by clicking outside
+window.addEventListener("click", (e) => {
+  if (e.target === imageModal) {
+    closeModal(imageModal);
+  }
+  if (e.target === modalAddImageEl) {
+    closeModal(modalAddImageEl);
+  }
+  if (e.target === modalEditEl) {
+    closeModal(modalEditEl);
+  }
+});
+
 // render cards
 const cardTemplate =
   document.querySelector("#template").content.firstElementChild;
