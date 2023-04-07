@@ -100,9 +100,6 @@
   margin-top: 54px;
 }
 
-.modal__input:nth-of-type(2) {
-}
-
 .modal__save-button {
   display: flex;
   position: relative;

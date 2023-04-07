@@ -65,7 +65,21 @@ function setEventListeners(formEl, config) {
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formEl, inputEl, config);
-      toggleButtonState(inputEls, submitButton, config);
+      // togglebuttonstate
+      enableButtonState(inputEls, submitButton, config);
+    });
+  });
+}
+
+// remove eventListeners
+function setEventListeners(formEl, config) {
+  const { inputSelector } = config;
+  const inputEls = [...formEl.querySelectorAll(inputSelector)];
+  const submitButton = formEl.querySelector(".modal__save-button");
+  inputEls.forEach((inputEl) => {
+    inputEl.removeEventListener("input", (e) => {
+      !checkInputValidity(formEl, inputEl, config);
+      disableButtonState(inputEls, submitButton, config);
     });
   });
 }
