@@ -65,13 +65,13 @@
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   background-size: contain;
-  cursor: pointer;
 }
 
 .gallery__image-like:hover {
   opacity: 0.5;
+  cursor: pointer;
 }
 
 .gallery__image-trash {
@@ -84,9 +84,12 @@
   left: 89%;
   top: 10%;
   border: none;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   background-size: contain;
   background-color: transparent;
+}
+
+.gallery__image-trash:hover {
   cursor: pointer;
 }
 

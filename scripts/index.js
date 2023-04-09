@@ -52,32 +52,28 @@ enlargeCloseBtn.addEventListener("click", () => {
 });
 
 // close modals by pushing escape key
+
+/*window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeModal(imageModal);
+  }
+  if (e.key === "Escape") {
+    closeModal(modalEditEl);
+  }
+  if (e.key === "Escape") {
+    closeModal(modalAddImageEl);
+  }
+});
+
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     closeModal(imageModal);
   }
-  if (e.key === "Escape") {
-    closeModal(modalEditEl);
-  }
-  if (e.key === "Escape") {
-    closeModal(modalAddImageEl);
-  }
-});
+});*/
 
 // close modals by clicking outside
-window.addEventListener("click", (e) => {
-  if (e.target === imageModal) {
-    closeModal(imageModal);
-  }
-  if (e.target === modalAddImageEl) {
-    closeModal(modalAddImageEl);
-  }
-  if (e.target === modalEditEl) {
-    closeModal(modalEditEl);
-  }
-});
 
-// render cards
+// handle rendering cards
 const cardTemplate =
   document.querySelector("#template").content.firstElementChild;
 const cardListEl = document.querySelector(".gallery");
@@ -86,14 +82,34 @@ const addImageCloseBtn = modalAddImageEl.querySelector(
 );
 
 // functions
+function closeModalOnRemoteClick(evt) {
+  const modalOpened = document.querySelector(".modal_opened");
+  if (evt.target.classList.contains("modal_opened")) {
+    closeModal(modalOpened);
+  }
+}
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeModalByEscape);
+  document.addEventListener("mousedown", closeModalOnRemoteClick);
 }
+
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeModalByEscape);
+  document.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
+
 function renderCard(cardEl, container) {
   container.prepend(cardEl);
+}
+
+function closeModalByEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    closeModal(openedModal);
+  }
 }
 
 // main function that creates all image cards
@@ -145,6 +161,7 @@ imageEditForm.addEventListener("submit", (e) => {
   renderCard(cardView, cardListEl);
   closeModal(modalAddImageEl);
   imageEditForm.reset();
+  toggleButtonState();
 });
 
 // open/close edit profile modal
@@ -156,6 +173,14 @@ editButton.addEventListener("click", function () {
 profileCloseButton.addEventListener("click", function () {
   closeModal(modalEditEl);
 });
+
+/*document.addEventListener("click", (e) => {
+  if (e.target === openedModal) {
+    closeModal(openedModal);
+  }
+});*/
+
+// open/close modals clicking outside
 
 // open/close add image modal
 cardAddImage.addEventListener("click", function () {
