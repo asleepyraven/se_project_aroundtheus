@@ -35,6 +35,7 @@ const modalDescription = document.querySelector("#modal__description");
 const editButton = document.querySelector(".profile__button-edit");
 const profileCloseButton = modalEditEl.querySelector(".modal__container-close");
 const profileEditForm = document.querySelector("#profile-edit-form");
+// experimental
 
 // image modal
 const modalAddImageEl = document.querySelector("#js-modal_type_add");
@@ -154,6 +155,7 @@ imageEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const name = e.target.title.value;
   const link = e.target.link.value;
+  const modalInputs = document.querySelectorAll([".modal__input"]);
   const cardView = getCardView({
     name,
     link,
@@ -161,7 +163,7 @@ imageEditForm.addEventListener("submit", (e) => {
   renderCard(cardView, cardListEl);
   closeModal(modalAddImageEl);
   imageEditForm.reset();
-  toggleButtonState();
+  toggleButtonState(modalInputs, submitButton, config);
 });
 
 // open/close edit profile modal
