@@ -41,6 +41,7 @@ const profileEditForm = document.querySelector("#profile-edit-form");
 const modalAddImageEl = document.querySelector("#js-modal_type_add");
 const imageModal = document.querySelector("#js-modal_type_image");
 const saveButton = document.querySelector(".modal__save-button");
+const imageSubmitButton = modalAddImageEl.querySelector(".modal__save-button");
 const cardAddImage = document.querySelector(".profile__button-add");
 const imageEditForm = document.querySelector("#image-edit-form");
 const imageEnlarge = imageModal.querySelector("img");
@@ -155,7 +156,7 @@ imageEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const name = e.target.title.value;
   const link = e.target.link.value;
-  const modalInputs = document.querySelectorAll([".modal__input"]);
+  const modalInputs = modalAddImageEl.querySelectorAll(".modal__input");
   const cardView = getCardView({
     name,
     link,
@@ -163,7 +164,7 @@ imageEditForm.addEventListener("submit", (e) => {
   renderCard(cardView, cardListEl);
   closeModal(modalAddImageEl);
   imageEditForm.reset();
-  toggleButtonState(modalInputs, submitButton, config);
+  toggleButtonState(modalInputs, imageSubmitButton, config);
 });
 
 // open/close edit profile modal
