@@ -46,6 +46,7 @@ function setEventListeners(formEl, config) {
       toggleButtonState(inputEls, submitButton, config);
     });
   });
+  toggleButtonState(inputEls, submitButton, config);
 }
 
 function enableValidation(config) {
