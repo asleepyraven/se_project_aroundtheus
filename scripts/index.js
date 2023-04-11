@@ -53,28 +53,6 @@ enlargeCloseBtn.addEventListener("click", () => {
   closeModal(imageModal);
 });
 
-// close modals by pushing escape key
-
-/*window.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    closeModal(imageModal);
-  }
-  if (e.key === "Escape") {
-    closeModal(modalEditEl);
-  }
-  if (e.key === "Escape") {
-    closeModal(modalAddImageEl);
-  }
-});
-
-window.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    closeModal(imageModal);
-  }
-});*/
-
-// close modals by clicking outside
-
 // handle rendering cards
 const cardTemplate =
   document.querySelector("#template").content.firstElementChild;
@@ -85,8 +63,8 @@ const addImageCloseBtn = modalAddImageEl.querySelector(
 
 // functions
 function closeModalOnRemoteClick(evt) {
-  const modalOpened = document.querySelector(".modal_opened");
   if (evt.target.classList.contains("modal_opened")) {
+    const modalOpened = document.querySelector(".modal_opened");
     closeModal(modalOpened);
   }
 }
@@ -176,14 +154,6 @@ editButton.addEventListener("click", function () {
 profileCloseButton.addEventListener("click", function () {
   closeModal(modalEditEl);
 });
-
-/*document.addEventListener("click", (e) => {
-  if (e.target === openedModal) {
-    closeModal(openedModal);
-  }
-});*/
-
-// open/close modals clicking outside
 
 // open/close add image modal
 cardAddImage.addEventListener("click", function () {

@@ -131,7 +131,7 @@
 }
 
 .modal__save-button_disabled:hover {
-  opacity: 1;
+  opacity: 20%;
 }
 
 .modal__error {
