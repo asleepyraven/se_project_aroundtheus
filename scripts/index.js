@@ -134,7 +134,9 @@ imageEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const name = e.target.title.value;
   const link = e.target.link.value;
-  const modalInputs = modalAddImageEl.querySelectorAll(".modal__input");
+  const modalInputs = Array.from(
+    modalAddImageEl.querySelectorAll(".modal__input")
+  );
   const cardView = getCardView({
     name,
     link,
