@@ -9,11 +9,13 @@ export default class Card {
     this._cardEl
       .querySelector(".gallery__image-like")
       .addEventListener("click", () => {
-        this._handleLikeIcon();
+        console.log("hi");
       });
     this._cardEl
       .querySelector(".gallery__image-trash")
-      .addEventListener("click", () => this._handleDeleteCard());
+      .addEventListener("click", () => {
+        this._handleDeleteCard();
+      });
   }
 
   _handleLikeIcon() {
@@ -27,16 +29,23 @@ export default class Card {
     this._cardEl = null;
   }
 
-  getView() {
-    this._cardEl = document
+  _getTemplate() {
+    return document
       .querySelector(this._cardSelector)
       .content.querySelector("#template__card")
       .cloneNode(true);
-    // get the card view
+  }
 
+  getView() {
+    // get the card view
+    this._cardEl = this._getTemplate();
     // set event listeners
     this._setEventListeners();
     // return the card
+    this._cardEl.querySelector(".gallery__image").src = this._link;
+    this._cardEl.querySelector(".gallery__image").alt = this._name;
+    this._cardEl.querySelector(".gallery__image-title").textContent =
+      this._name;
     return this._cardEl;
   }
 }
