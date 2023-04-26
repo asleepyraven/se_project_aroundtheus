@@ -1,4 +1,5 @@
-// hold initial images
+import Card from "./card.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -26,6 +27,9 @@ const initialCards = [
   },
 ];
 
+const card = new Card(cardData, "template__card");
+card.getView();
+
 // profile modal
 const modalEditEl = document.querySelector("#js-modal_type_edit");
 const userName = document.querySelector(".profile__name");
@@ -40,7 +44,6 @@ const profileEditForm = document.querySelector("#profile-edit-form");
 // image modal
 const modalAddImageEl = document.querySelector("#js-modal_type_add");
 const imageModal = document.querySelector("#js-modal_type_image");
-const saveButton = document.querySelector(".modal__save-button");
 const imageSubmitButton = modalAddImageEl.querySelector(".modal__save-button");
 const cardAddImage = document.querySelector(".profile__button-add");
 const imageEditForm = document.querySelector("#image-edit-form");
@@ -97,20 +100,20 @@ function getCardView(cardData) {
   const cardEl = cardTemplate.cloneNode(true);
   const cardImageEl = cardEl.querySelector(".gallery__image");
   const cardTitleEl = cardEl.querySelector(".gallery__image-title");
-  const cardLikeBtn = cardEl.querySelector(".gallery__image-like");
-  const imageDeleteButton = cardEl.querySelector(".gallery__image-trash");
+  /*const cardLikeBtn = cardEl.querySelector(".gallery__image-like");
+  const imageDeleteButton = cardEl.querySelector(".gallery__image-trash");*/
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardTitleEl.textContent;
   cardTitleEl.textContent = cardData.name;
 
-  // event listener "like button"
+  /*// event listener "like button"
   cardLikeBtn.addEventListener("click", () => {
     cardLikeBtn.classList.toggle("gallery__image-like_active");
   });
   // event listener "image delete button"
   imageDeleteButton.addEventListener("click", () => {
     cardEl.remove();
-  });
+  });*/
   // event listener "open enlarged image"
   cardImageEl.addEventListener("click", () => {
     imageEnlarge.src = cardData.link;
@@ -166,7 +169,8 @@ addImageCloseBtn.addEventListener("click", function () {
 });
 
 // render initial cards onto page
-initialCards.forEach(function (cardData) {
+/*initialCards.forEach(function (cardData) {
   const cardView = getCardView(cardData);
   renderCard(cardView, cardListEl);
 });
+*/
