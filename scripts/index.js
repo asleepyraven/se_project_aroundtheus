@@ -32,7 +32,7 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const card = new Card(cardData, "#template");
+const card = new Card(cardData, "template");
 card.getView();
 
 // profile modal
@@ -110,14 +110,6 @@ function getCardView(cardData) {
   cardImageEl.alt = cardTitleEl.textContent;
   cardTitleEl.textContent = cardData.name;
 
-  /*// event listener "like button"
-  cardLikeBtn.addEventListener("click", () => {
-    cardLikeBtn.classList.toggle("gallery__image-like_active");
-  });
-  // event listener "image delete button"
-  imageDeleteButton.addEventListener("click", () => {
-    cardEl.remove();
-  });*/
   // event listener "open enlarged image"
   cardImageEl.addEventListener("click", () => {
     imageEnlarge.src = cardData.link;
@@ -174,6 +166,6 @@ addImageCloseBtn.addEventListener("click", function () {
 
 // render initial cards onto page
 initialCards.forEach(function (cardData) {
-  const cardView = getCardView(cardData);
-  renderCard(cardView, cardListEl);
+  const cardView = new Card(cardData, "#template");
+  renderCard(cardView.getView(), cardListEl);
 });

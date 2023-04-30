@@ -33,18 +33,7 @@
       </section>
 
       <section class="main-content">
-        <ul class="gallery">
-          <template id="template">
-            <li id="template__card">
-              <button class="gallery__image-trash" type="button"></button>
-              <img src="#" class="gallery__image" alt="#" id="" />
-              <div class="gallery__image-footer">
-                <h2 class="gallery__image-title"></h2>
-                <button class="gallery__image-like" type="button"></button>
-              </div>
-            </li>
-          </template>
-        </ul>
+        <ul class="gallery"></ul>
       </section>
 
       <section class="modal" id="js-modal_type_edit">
@@ -126,5 +115,16 @@
     </footer>
     <script src="./scripts/index.js" defer type="module"></script>
     <script src="./scripts/validation.js" defer></script>
+
+    <template id="template">
+      <li id="template__card">
+        <button class="gallery__image-trash" type="button"></button>
+        <img src="#" class="gallery__image" alt="#" id="" />
+        <div class="gallery__image-footer">
+          <h2 class="gallery__image-title"></h2>
+          <button class="gallery__image-like" type="button"></button>
+        </div>
+      </li>
+    </template>
   </body>
 </html>

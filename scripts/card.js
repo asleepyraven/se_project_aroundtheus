@@ -9,12 +9,19 @@ export default class Card {
     this._cardEl
       .querySelector(".gallery__image-like")
       .addEventListener("click", () => {
-        console.log("hi");
+        this._handleLikeIcon();
       });
+
     this._cardEl
       .querySelector(".gallery__image-trash")
       .addEventListener("click", () => {
         this._handleDeleteCard();
+      });
+
+    this._cardEl
+      .querySelector(".gallery__image")
+      .addEventListener("click", () => {
+        this._handlePreviewPicture();
       });
   }
 
@@ -27,6 +34,15 @@ export default class Card {
   _handleDeleteCard() {
     this._cardEl.remove();
     this._cardEl = null;
+  }
+
+  _handlePreviewPicture() {
+    this._cardEl.addEventListener("click", () => {
+      this._cardEl.src = this._link;
+      this._cardEl.alt = this._name;
+      this._cardEl.textContent = this._name;
+      openModal(imageModal);
+    });
   }
 
   _getTemplate() {
